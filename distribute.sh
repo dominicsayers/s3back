@@ -27,7 +27,6 @@ do
         then
                 BUCKET=$(echo ${ROOT} | sed -e s/_/-/)
                 echo Sending ${ROOT} to bucket ${BUCKET}
-                env
                 # s3cmd -c "${BASE}/.s3cfg" --rr -H put ${f} "s3://${BUCKET}/backups/${ROOT}-`date +%Y-%m-%d`.${EXTENSION}"
                 aws s3 cp ${f} "s3://${BUCKET}/backups/${ROOT}-`date +%Y-%m-%d`.${EXTENSION}"
         fi
