@@ -31,6 +31,6 @@ do
                 BUCKET=$(echo ${ROOT} | sed -e s/_/-/)
                 echo Sending ${ROOT} to bucket ${BUCKET}
                 # s3cmd -c "${BASE}/.s3cfg" --rr -H put ${f} "s3://${BUCKET}/backups/${ROOT}-`date +%Y-%m-%d`.${EXTENSION}"
-                /usr/local/bin/aws/aws s3 cp  --storage-class REDUCED_REDUNDANCY ${f} "s3://${BUCKET}/backups/${ROOT}-`date +%Y-%m-%d`.${EXTENSION}"
+                /usr/local/bin/aws s3 cp  --storage-class REDUCED_REDUNDANCY ${f} "s3://${BUCKET}/backups/${ROOT}-`date +%Y-%m-%d`.${EXTENSION}"
         fi
 done
